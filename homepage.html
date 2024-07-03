@@ -6,8 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Online Shopping Store</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-         <link rel="stylesheet" href="style.css">
-
+        <link rel="stylesheet" href="style.css">
          <style>
             body {
               
@@ -94,7 +93,9 @@
     </head>
 
     <body>
-        
+      <!-- Copy This Nav Bar For Every Page -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="checkLoginStatus.js"></script>
         <nav>
             <img class="name" src="images/clothing.png"> 
            
@@ -103,21 +104,22 @@
                 <li><a href="men.html">MEN</a> </li>
                 <li><a href="women.html">WOMEN</a> </li>
                 <li><a href="kids.html">KIDS</a> </li>
-            
+                <li><a href="cartCheckout.html">CART</a></li>
                 <li><a href="offers.html">OFFERS</a> </li>
                 <li><a href="nwa.html">NEW ARRIVALS</a> </li>
-                <li><a href="login.html">LOGIN|SIGNUP</a> </li>
+                <li><a id ="loginStatus" href="AuthCheck.html">LOGIN|SIGNUP</a> </li>
                 <div class="search-container">
-                    <input type="text" placeholder="Search...">
-                    <button type="submit">Search</button>
-                    <button type="submit">add cart</button>
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+                <button type="submit">add cart</button>
                 </div>
             </ul>
+          </nav>
+        <!-- Up to here -->
             
             
             
             
-        </nav>
     <main>
         <img class="pjt1" src="images/STYLE VISTA.png">
     </main>

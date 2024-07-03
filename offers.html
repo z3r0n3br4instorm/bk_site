@@ -95,6 +95,9 @@
 
     <body>
         
+      <!-- Copy This Nav Bar For Every Page -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="checkLoginStatus.js"></script>
         <nav>
             <img class="name" src="images/clothing.png"> 
            
@@ -103,135 +106,46 @@
                 <li><a href="men.html">MEN</a> </li>
                 <li><a href="women.html">WOMEN</a> </li>
                 <li><a href="kids.html">KIDS</a> </li>
-            
+                <li><a href="cartCheckout.html">CART</a></li>
                 <li><a href="offers.html">OFFERS</a> </li>
                 <li><a href="nwa.html">NEW ARRIVALS</a> </li>
-                <li><a href="login.html">LOGIN|SIGNUP</a> </li>
+                <li><a id ="loginStatus" href="AuthCheck.html">LOGIN|SIGNUP</a> </li>
                 <div class="search-container">
-                    <input type="text" placeholder="Search...">
-                    <button type="submit">Search</button>
-                    <button type="submit">add cart</button>
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+                <button type="submit">add cart</button>
                 </div>
             </ul>
-                       
-        </nav>
+          </nav>
+        <!-- Up to here -->
 
         <br>
         <br>
         <br>
 
         <div class="container">
-            <div class="card">
-              <img src="images/men.jpg" alt="Image 1">
-              <div class="card-content">
-                <h3 style="font-family: Arial, Helvetica, sans-serif;">Price</h3><br>
-                <p style="font-family: Arial, Helvetica, sans-serif;">#0001</p>
-                <div class="btn-container">
-                  <button class="btn btn-buy">Buy Now</button>
-                  <button class="btn btn-cart" onclick="addToCart('#0001', 1800)">Add to Cart</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <img src="images/men.jpg" alt="Image 2">
-              <div class="card-content">
-                <h3 style="font-family: Arial, Helvetica, sans-serif;">Price</h3><br>
-                <p style="font-family: Arial, Helvetica, sans-serif;">#0002</p>
-                <div class="btn-container">
-                  <button class="btn btn-buy">Buy Now</button>
-                  <button class="btn btn-cart" onclick="addToCart('#0002', 1500)">Add to Cart</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <img src="images/men.jpg" alt="Image 3">
-              <div class="card-content">
-                <h3 style="font-family: Arial, Helvetica, sans-serif;">Price</h3><br>
-                <p style="font-family: Arial, Helvetica, sans-serif;">#0003</p>
-                <div class="btn-container">
-                  <button class="btn btn-buy">Buy Now</button>
-                  <button class="btn btn-cart">Add to Cart</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <img src="images/men.jpg" alt="Image 4">
-              <div class="card-content">
-                <h3 style="font-family: Arial, Helvetica, sans-serif;">Price</h3><br>
-                <p style="font-family: Arial, Helvetica, sans-serif;">#0004</p>
-                <div class="btn-container">
-                  <button class="btn btn-buy">Buy Now</button>
-                  <button class="btn btn-cart">Add to Cart</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <br>
-          
-          <div class="container">
-              <div class="card">
-                <img src="images/men.jpg" alt="Image 1">
-                <div class="card-content">
-                  <h3 style="font-family: Arial, Helvetica, sans-serif;">Price</h3><br>
-                <p style="font-family: Arial, Helvetica, sans-serif;">#0005</p>
-                  <div class="btn-container">
-                    <button class="btn btn-buy">Buy Now</button>
-                    <button class="btn btn-cart">Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <img src="images/men.jpg" alt="Image 2">
-                <div class="card-content">
-                <h3 style="font-family: Arial, Helvetica, sans-serif;">Price</h3><br>
-                <p style="font-family: Arial, Helvetica, sans-serif;">#0006</p>
-                  <div class="btn-container">
-                    <button class="btn btn-buy">Buy Now</button>
-                    <button class="btn btn-cart">Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <img src="images/men.jpg" alt="Image 3">
-                <div class="card-content">
-                  <h3 style="font-family: Arial, Helvetica, sans-serif;">Price</h3><br>
-                <p style="font-family: Arial, Helvetica, sans-serif;">#0007</p>
-                  <div class="btn-container">
-                    <button class="btn btn-buy">Buy Now</button>
-                    <button class="btn btn-cart">Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <img src="images/men.jpg" alt="Image 4">
-                <div class="card-content">
-                  <h3 style="font-family: Arial, Helvetica, sans-serif;">Price</h3><br>
-                <p style="font-family: Arial, Helvetica, sans-serif;">#0008</p>
-                  <div class="btn-container">
-                    <button class="btn btn-buy">Buy Now</button>
-                    <button class="btn btn-cart">Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <script>
+            // Array of product details
+            var products = [
+        { id: '#0001', price: 1800, image: "images/men.jpg" },
+        { id: '#0002', price: 1500, image: "images/men.jpg" },
+        { id: '#0003', price: 1300, image: "images/men.jpg" },
+        { id: '#0004', price: 1200, image: "images/men.jpg" },
+        { id: '#0001', price: 1800, image: "images/men.jpg" },
+        { id: '#0002', price: 1500, image: "images/men.jpg" },
+        { id: '#0003', price: 1300, image: "images/men.jpg" },
+        { id: '#0004', price: 1200, image: "images/men.jpg" },
+        { id: '#0001', price: 1800, image: "images/men.jpg" },
+        { id: '#0002', price: 1500, image: "images/men.jpg" },
+        { id: '#0003', price: 1300, image: "images/men.jpg" },
+        { id: '#0004', price: 1200, image: "images/men.jpg" },
+        ];
+          </script>
+          <script src="productsGenerator.js"></script>
+          <script src="cart.js"></script>
+        </div>
   
             <script>
-              // Function to add item to cart
-              function addToCart(productName, price) {
-                var cartItem = {
-                  name: productName,
-                  price: price
-                };
-                // Get existing cart items from localStorage
-                var cart = JSON.parse(localStorage.getItem('cart')) || [];
-                // Add new item to cart
-                cart.push(cartItem);
-                // Save updated cart to localStorage
-                localStorage.setItem('cart', JSON.stringify(cart));
-                // Redirect to cart page
-                window.location.href = 'cart5.html';
-              }
             </script>
   
             <br>

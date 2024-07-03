@@ -1,35 +1,30 @@
 <?php
 
 session_start();
-
-// Database connection parameters
 $host = "localhost";
 $databaseUserName = "sithmini";
 $databasePassword = "bk1234";
 $database = "bkdb";
 
+header("Access-Control-Allow-Origin: *");
+error_log("[NOTERROR] Session Started - Cart");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = new mysqli($host, $databaseUserName, $databasePassword, $database);
-
-    // Check connection
     if ($conn->connect_error) {
-        // Log connection error
         error_log("Connection failed: " . $conn->connect_error);
         die("Connection failed: " . $conn->connect_error);
     }
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $telephone = $_POST['telephone'];
-    $address = $_POST['address'];
-    $postCode = $_POST['postCode'];
-    $OTP = $_POST['OTP'];
+    $UserID = $_POST['userId'];
+    $ItemSize = $_POST['size'];
+    $ItemColor = $_POST['color'];
+    $ItemAmount = $_POST['amount'];
+    $ProductID = $_POST['productId'];
+    $ProductPrice = $_POST['price'];
     
     error_log("[NOTERROR] Inserting Data");
-    // Prepare the SQL statement to insert data into the users table
-    $sql = "INSERT INTO users (UserName, Passwd, Telephone, Address, PostCode, `ACCNO-OTP`) 
-            VALUES ('$username', '$password', '$telephone', '$address', '$postCode', '$OTP')";
+    $sql = "INSERT INTO cart (UserID, ItemSize, ItemColor, ItemAmount, ProductID, price) 
+            VALUES ('$UserID', '$ItemSize', '$ItemColor', '$ItemAmount', '$ProductID', '$ProductPrice')";
     
-    // Execute the SQL statement
     if ($conn->query($sql) === TRUE) {
         // New record created successfully
         error_log("[NOTERROR] Record Created");
@@ -40,6 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $sql . "<br>" . $conn->error;
         http_response_code(500);
     }
+    
+    // Close the database connection
     $conn->close();    
 }
 ?>
